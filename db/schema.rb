@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2016_08_26_145754) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "contacts", id: :serial, force: :cascade do |t|
+  create_table "contacts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "phone", default: "", null: false
     t.datetime "created_at", null: false
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 2016_08_26_145754) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "password_digest", default: "", null: false
