@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
       flash[:success] = 'Contato criado com sucesso.'
-      redirect_to user_contacts_path
+      redirect_to user_contacts_url
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.find_by(id: params[:id])
     if @contact.nil?
       flash[:danger] = 'Contato não encontrado.'
-      redirect_to user_contacts_path(current_user)
+      redirect_to user_contacts_url(current_user)
     end
   end
 
